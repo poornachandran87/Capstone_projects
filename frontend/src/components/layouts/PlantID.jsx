@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 
 import FileBase64 from 'react-file-base64';
-import axios from 'axios';
+// import axios from 'axios';
 
 const PlantId = () =>{
     const [plantFile, setPlantFile] = useState(null);

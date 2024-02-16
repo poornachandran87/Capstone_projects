@@ -35,6 +35,7 @@ import OrderDetail from './components/order/OrderDetail';
 import ProductCategory from './components/product/ProductCategory';
 import SuggestPlant from './components/suggestPlants';
 import PlantId from './components/layouts/PlantID';
+
 // import { getCart } from './actions/cartActions';
 
 
