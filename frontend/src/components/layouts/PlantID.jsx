@@ -52,22 +52,36 @@ const PlantId = () =>{
         <div className='plant-identify-conatiner'>
       <h2 className='identify-heading'>Plant Identification</h2>
       <label htmlFor="plantId" className='upload'>Upload an image</label> 
-      <FileBase64
+  
+
+  <div className='upload-div'>
+
+  <FileBase64
         multiple={false}
         onDone={handleInput}
         id="plantId"
       />
       <br />
+
+
+  </div>
       <button style={{ backgroundColor: 'green', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', marginTop: '10px' }} onClick={setPicIdData}>
         Identify Plant
       </button>
       <br />
+
+      <div className='plants-are' > <div></div>
       {plantData && plantData.suggestions.map((suggestion, index) => (
-        <div key={index} style={{ marginTop: '20px', color: 'green' }}>
-          <h1>{suggestion.plant_name}</h1>
-          <p><a href={suggestion.plant_details.url} style={{ color: 'green', textDecoration: 'none' }}>More Info</a></p>
+        
+        
+        <div className='plant-is' key={index} >
+          <h1 className='plant-name-is'>{suggestion.plant_name}</h1>
+          <p className='more-info'><a href={suggestion.plant_details.url} style={{ color: 'green', textDecoration: 'none' }}>More Info</a></p>
         </div>
+
+        
       ))}
+      </div>
     </div>
   );
 };
