@@ -11,7 +11,7 @@ export default function Product ({product,col}){
                     {product.images && product.images.map(image => 
                     <Carousel.Item key= {image._id}>
                       <img
-          className="card-img-top mx-auto"
+          className="card-img-topp mx-auto"
           src={image.image}
           alt={product.name}
         />

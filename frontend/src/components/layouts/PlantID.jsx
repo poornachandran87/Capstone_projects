@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import FileBase64 from 'react-file-base64';
 // import axios from 'axios';
+import './PlantId.css'
 
 const PlantId = () =>{
     const [plantFile, setPlantFile] = useState(null);
@@ -48,9 +49,9 @@ const PlantId = () =>{
         console.log(plantData);
     return (
        
-        <div style={{ textAlign: 'center', marginTop: '60px', color: 'green' }}>
-      <h2>Plant Identification</h2>
-      <label htmlFor="plantId" style={{ marginRight: '10px' }}>Upload an image</label> 
+        <div className='plant-identify-conatiner'>
+      <h2 className='identify-heading'>Plant Identification</h2>
+      <label htmlFor="plantId" className='upload'>Upload an image</label> 
       <FileBase64
         multiple={false}
         onDone={handleInput}

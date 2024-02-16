@@ -1,0 +1,17 @@
+.plant-identify-conatiner{
+    background-color: bisque;
+    height: 40rem;
+    max-width:-webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 2rem ;
+    
+    align-items: center;
+}
+
+.identify-heading{
+font-size: 3rem;
+
+}
+

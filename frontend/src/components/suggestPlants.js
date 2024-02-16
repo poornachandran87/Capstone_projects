@@ -66,7 +66,7 @@ export default function SuggestPlant() {
         </div>
 
         
-        <div className="d-grid gap-2 col-6 mx-auto">
+        <div className="div4 d-grid gap-2 col-6 mx-auto">
           <button className="btn1" type="button" onClick={handleButtonClick}>Find this type of plant...</button>
         </div>
 

@@ -5,7 +5,10 @@
     height: fit-content;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('https://hips.hearstapps.com/hmg-prod/images/fertilizer-numbers-1-645282c9e48bc.jpg');
+    background-image: url('https://img.freepik.com/premium-vector/floral-boho-neutral-abstract-background-with-flower-leaf_181182-26501.jpg');
+}
+.container{
+    max-width:-webkit-fill-available;
 }
 
 .headings{
@@ -27,6 +30,9 @@
     width: 47rem;
     font-size: 2rem;
     color: white;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin: 2rem;
     
 }
 
@@ -36,18 +42,24 @@
     font-size: 2rem;
     color: white;
     border-width: 1rem black ;
-    
+    border: 2px solid black;
+    border-radius: 1rem;
     
 }
 .div3{
     padding: 1rem 1rem 1rem 1rem;
     padding-block-end: 5rem;
     justify-content:left;
+    flex-direction: column;
+    display:flex;
+    background-size:auto;
+    align-items: center;
     
-    display:grid;
-    background-size:auto
-    
-    
+}
+.div4{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -57,7 +69,7 @@
     background-color: initial ;
     
     backdrop-filter: blur(50px);
-    color: white;
+    color: black;
 }
 .card-header{
     color:rgb(16, 91, 49);
@@ -99,7 +111,7 @@ background-color: initial;
     background-color:rgb(17, 73, 42);
    /* color: rgb(17, 73, 42);
    background-color: white; */
-
+   color: white;
   }
   .header{
     font-weight: bolder;
