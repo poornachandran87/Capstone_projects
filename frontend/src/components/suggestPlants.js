@@ -81,6 +81,7 @@ export default function SuggestPlant() {
         alt={suggestedPlant.image}
         className=" image"
       />
+      
     )}
                    </div>
                    <div className="mt-4  ">
