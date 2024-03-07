@@ -1,5 +1,5 @@
 {
-  "name": "shopping",
+  "name": "plants",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -25,6 +25,6 @@
     "validator": "^13.11.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.1.0"
   }
 }
