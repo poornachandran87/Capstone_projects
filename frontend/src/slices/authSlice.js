@@ -55,7 +55,7 @@ const authSlice = createSlice({
                 error:  action.payload
             }
         },
-        loaduserRequest(state, action){
+        loadUserRequest(state, action){
             return {
                 ...state,
                 isAuthenticated:false,
@@ -192,7 +192,7 @@ export const {
     registerRequest,
     registerSuccess,
     registerFail,
-    loaduserRequest,
+    loadUserRequest,
     loadUserSuccess,
     loadUserFail,
     logoutSuccess,

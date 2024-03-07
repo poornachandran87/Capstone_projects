@@ -1,6 +1,6 @@
 import { Carousel } from 'react-bootstrap';
 import './Home.css'
-import { Link } from 'react-router-dom';
+
 import Categories from './layouts/cards'
 
 

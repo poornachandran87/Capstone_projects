@@ -55,15 +55,30 @@ exports.getCategory = catchAsyncError(async (req, res, next)=>{
 })
 
 //create product - /api/v1/product/new
-exports.newProduct = catchAsyncError (async (req,res) => {
-    req.body.user = req.user.id
+exports.newProduct = catchAsyncError(async (req, res, next)=>{
+    let images = []
+    let BASE_URL = process.env.BACKEND_URL;
+    if(process.env.NODE_ENV === "production"){
+        BASE_URL = `${req.protocol}://${req.get('host')}`
+    }
+    
+    if(req.files.length > 0) {
+        req.files.forEach( file => {
+            let url = `${BASE_URL}/uploads/product/${file.originalname}`;
+            images.push({ image: url })
+        })
+    }
+
+    req.body.images = images;
+
+    req.body.user = req.user.id;
     const product = await Product.create(req.body);
     res.status(201).json({
-     success : true,
-     
-     product
+        success: true,
+        product
     })
- });
+});
+
 
  //get single product- {{base_url}}/api/v1/product/id
 exports.getSingleProduct = catchAsyncError(async(req, res, next) => {
@@ -83,25 +98,51 @@ exports.getSingleProduct = catchAsyncError(async(req, res, next) => {
 
 
 //update product -{{base_url}}/api/v1/product/id
-exports.updateProduct = async (req,res,next) =>{
+exports.updateProduct = catchAsyncError(async (req, res, next) => {
     let product = await Product.findById(req.params.id);
 
-    if(!product) {
-       return res.status(404).json({
-            success: false,
-            message : "product not found"
+    //uploading images
+    let images = []
+
+    //if images not cleared we keep existing images
+    if(req.body.imagesCleared === 'false' ) {
+        images = product.images;
+    }
+    let BASE_URL = process.env.BACKEND_URL;
+    if(process.env.NODE_ENV === "production"){
+        BASE_URL = `${req.protocol}://${req.get('host')}`
+    }
+
+    if(req.files.length > 0) {
+        req.files.forEach( file => {
+            let url = `${BASE_URL}/uploads/product/${file.originalname}`;
+            images.push({ image: url })
         })
     }
 
-    product = await Product.findByIdAndUpdate(req.params.id,req.body, {
-        new : true,
-        runValidators : true
+
+    req.body.images = images;
+    
+    if(!product) {
+        return res.status(404).json({
+            success: false,
+            message: "Product not found"
+        });
+    }
+  
+
+    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
     })
 
     res.status(200).json({
         success: true,
         product
-    }) };
+    })
+
+})
+
 
 
 //delete product -{{base_url}}/api/v1/product/id
@@ -263,3 +304,6 @@ exports.suggestPlant = async (req,res)=>{
       console.log(error)
   }
 }
+
+
+
