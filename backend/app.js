@@ -16,12 +16,12 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname,'uploads') ) )
-app.use(function(req,res,next){
-    res.header("Access-Control-Allow-Origin", 'http://localhost:3000');
-    res.header("Access-Control-Allow-Methods", 'GET,POST');
-    res.header("Access-Control-Allow-Headers", 'X-PINGOTHER, Content-Type')
-    next();
-})
+// app.use(function(req,res,next){
+//     res.header("Access-Control-Allow-Origin", 'http://localhost:3000');
+//     res.header("Access-Control-Allow-Methods", 'GET,POST');
+//     res.header("Access-Control-Allow-Headers", 'X-PINGOTHER, Content-Type')
+//     next();
+// })
 
 app.use('/api/v1/',products);
 app.use('/api/v1/',auth);
